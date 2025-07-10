@@ -1,0 +1,218 @@
+<!--
+
+6. Exercício Grid e Flexbox - Monte uma galeria com oito imagens e legendas,
+organizadas por Grid. Além disso, envolva toda a galeria em um contêiner que
+utilize Flexbox para centralizar o conjunto na página e permitir que as figuras
+quebrem de linha quando a largura for limitada. Ajuste o número de colunas do
+Grid para telas menores por meio de media query.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Responsiva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffe600 0%, #ff0000 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgb(0, 255, 247);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px 15px 15px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgb(0, 255, 255);
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+        }
+
+        @media (max-width: 992px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .gallery-title {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 15px;
+            }
+
+            .gallery-container {
+                padding: 10px;
+            }
+
+            .gallery-title {
+                font-size: 1.8em;
+                top: -50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .gallery-item img {
+                height: 180px;
+            }
+
+            .gallery-title {
+                font-size: 1.5em;
+                top: -40px;
+            }
+
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery-container">
+        <div class="gallery">
+            <h1 class="gallery-title">Galeria Responsiva</h1>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/Anime.jpg"
+                    alt="Montanha">
+                <div class="caption">Um olhar através da alma</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/BlackaAndDark.jpg" alt="Lago">
+                <div class="caption">Carregando um Legado</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/Cat.jpg"
+                    alt="Floresta">
+                <div class="caption">Reflexo interior</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/Florest.jpg"
+                    alt="Praia">
+                <div class="caption">Floresta durante o Anoitecer</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/Noctis & Luna.jpg"
+                    alt="Cidade">
+                <div class="caption">Noctis e Luna</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/NoctisAndPrompto.jpg"
+                    alt="Campo">
+                <div class="caption">Foto com os amigos</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/Rain.jpg"
+                    alt="Deserto">
+                <div class="caption">Caminhar na Chuva</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/lista-de-exercicios-3/assets/Star.jpg"
+                    alt="Cachoeira">
+                <div class="caption">Estrelas</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

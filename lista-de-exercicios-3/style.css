@@ -1,3 +1,17 @@
+/*
+
+5. Seletores e Propriedades - No mesmo styles.css, adicione:
+
+- Um estilo para todas as tags <h2> que aumente a font-size e aplique text-
+decoration: underline.
+
+- Uma classe .destaque que deixe o texto em itálico (font-style: italic) e aplique
+um leve background-color.
+
+- Um ID #importante que adicione border-top mais espessa em um parágrafo
+específico.
+
+*/
 * {
     margin: 0;
     padding: 0;
@@ -11,12 +25,10 @@ body {
     color: #ffffff;
 }
 
-
 header {
     background-color: #0f0f23;
     color: #e94560;
     text-align: center;
-
 
     margin: 20px;
     padding: 30px 20px;
@@ -35,12 +47,11 @@ header p {
     font-style: italic;
 }
 
-
 main {
     background-color: #16213e;
     color: #ffffff;
 
-
+    /* Box Model */
     margin: 20px;
     padding: 40px 30px;
     border: 2px solid #4a69bd;
@@ -56,10 +67,11 @@ main section {
     border-radius: 5px;
 }
 
-main h2 {
+h2 {
     color: #e94560;
     margin-bottom: 15px;
-    font-size: 1.8em;
+    font-size: 2.2em;
+    text-decoration: underline;
 }
 
 main p {
@@ -75,12 +87,10 @@ main li {
     margin-bottom: 8px;
 }
 
-
 footer {
     background-color: #0f0f23;
     color: #a0a0a0;
     text-align: center;
-
 
     margin: 20px;
     padding: 25px 20px;
@@ -91,6 +101,19 @@ footer {
 footer p {
     margin-bottom: 5px;
     font-size: 0.9em;
+}
+
+.destaque {
+    font-style: italic;
+    background-color: rgba(233, 69, 96, 0.2);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+#importante {
+    border-top: 5px solid #e94560;
+    padding-top: 15px;
+    margin-top: 20px;
 }
 
 header:hover {
